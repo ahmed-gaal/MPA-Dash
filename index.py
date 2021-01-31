@@ -21,7 +21,7 @@ navitem = dbc.NavItem(
 drop_down = dbc.DropdownMenu(
     children=[
         dbc.DropdownMenuItem(
-            "Ministry of Ports and Marine Transport Somalia",
+            "Ministry of Ports and Marine Transport",
             href="https://mpmt.gov.so/en/", target='_blank'
         ),
         dbc.DropdownMenuItem(
@@ -65,7 +65,7 @@ navbar = dbc.Navbar(
             ),
         ]
     ),
-    color="warning",
+    color="secondary",
     dark=False,
     className="mb-5",
 )
@@ -93,4 +93,4 @@ def display_page(pathname):
         return explore.layout
 
 if __name__ == "__main__":
-    app.run_server(debug=True)
+    app.run_server()
