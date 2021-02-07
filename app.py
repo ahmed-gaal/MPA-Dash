@@ -12,7 +12,7 @@ valid_login = {
     str(os.environ.get('USER')): str(os.environ.get('PASS'))
 }
 
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets,meta_tags=[
+app = dash.Dash(__name__, external_stylesheets=external_stylesheets, meta_tags=[
         {"name": "viewport", "content": "width=device-width, initial-scale=1"}
     ])
 
@@ -20,9 +20,6 @@ auth = da.BasicAuth(
     app, valid_login
 )
 server = app.server
-
-#if __name__ =='__main':
-#    app.run_server(port=2020, debug=True)
-
+# Application Title
 app.title = 'Maamulka Dekkedda Muqdisho'
-app.config.suppress_callback_exceptions = True
+app.config.suppress_callback_exceptions=True
