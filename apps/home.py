@@ -18,6 +18,7 @@ now = datetime.now()
 current_month = now.strftime('%B')
 current_day = now.strftime('%A')
 current_year = now.strftime('%Y')
+datenow = now.strftime("%d:%m:%Y")
 colors=['#8798BF', '#2A3E5D']
 ves['Month'] = pd.DatetimeIndex(ves['Date']).month_name()
 ves["Day"] = pd.DatetimeIndex(ves['Date']).day
@@ -80,8 +81,21 @@ fig3.add_trace(go.Indicator(
 layout = html.Div([
     dbc.Row([
         dbc.Col(
+            daq.LEDDisplay(
+                id='time-display',
+                value=datenow,
+                color='#FF5E5E',
+                label='Last Updated',
+                style={
+                    'font-variant': 'small-caps', 'font-weight': 'bold'
+                }
+            ), width={'size': 6, 'offset': 3}
+        )
+    ], align='centre', className='row'),
+    dbc.Row([
+        dbc.Col(
             html.Div([
-                dbc.CardHeader("Card header"),
+                dbc.CardHeader("Vessels Docked at the Port of Mogadishu."),
                 dbc.CardBody([
                     dcc.Graph(
                         id='no_vessels',
@@ -99,7 +113,7 @@ layout = html.Div([
         ),
         dbc.Col(
             html.Div([
-                dbc.CardHeader("CardHeader2"),
+                dbc.CardHeader("Cargo Transport Units in Port of Mogadishu."),
                 dbc.CardBody([
                     dcc.Graph(
                         id='no_ctu',
