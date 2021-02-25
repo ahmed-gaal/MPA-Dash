@@ -1,18 +1,11 @@
 import dash_core_components as dcc
 import dash_html_components as html
-import dash_daq as daq
 from dash.dependencies import Input, Output, State
 import dash_bootstrap_components as dbc
 from app import server
 from app import app
 from apps import explore, home
 
-theme = {
-    'dark': False,
-    'detail': '#007439',
-    'primary': '#00EA64',
-    'secondary': '#6E6E6E'
-}
 # building the navigation bar
 nav_item = dbc.NavItem(
     dbc.NavLink('Explore', href='/explore')
